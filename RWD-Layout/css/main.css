@@ -5,7 +5,9 @@ footer {
     /*outline: 1px solid #ccc;*/
 }
 
-
+.CEO-info > img {
+    border-radius: 50%;
+}
 /* BASE */
 
 
@@ -33,6 +35,7 @@ footer {
 
 .page-footer {
     grid-area: ft;
+    display: grid;
     background-color: #16242f;
 }
 
@@ -52,6 +55,7 @@ footer {
 
 .other-info {
     grid-area: in;
+    display: grid;
 }
 
 .clients {
@@ -63,7 +67,10 @@ footer {
 
 .page-footer > .social {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+}
+
+.about-us {
+    display: grid;
 }
 
 .page-footer>.row:last-child {
@@ -74,10 +81,6 @@ footer {
 }
 
 /* MODULES */
-
-
-
-
 
 .mobile-menu {
     display: none;
@@ -104,6 +107,24 @@ footer {
 @media screen and (max-width: 39.9375em) {
     /* styles for small only */
 
+    .page {
+        min-width: 40rem;
+        max-width: 60rem;
+        margin: 0 auto;
+        display: grid;
+        grid-column-gap: 1.4rem;
+        grid-row-gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(10rem, auto);
+        grid-template-areas:
+          "hd hd hd hd"
+          "hi hi hi hi" 
+          "sr sr sr sr"
+          "bl bl bl bl"
+          "pr pr pr pr"
+          "ft ft ft ft";
+    }
+    
     .show {
         display:block !important;
     }
@@ -116,7 +137,7 @@ footer {
         display: block;
         position: absolute;
         top:15px;
-        right: 15px;
+        right: 100px;
         width: 38px;
         height: 38px;
         background-color: #e2e2e2;
@@ -131,8 +152,44 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
     }
+        
+    .other-info, .hero-area, .clients {
+        display: none;
+    }
+    
+    .instagram, .newsletter, .about-us > h3, #about {
+        display: none;
+    }
+    
+    .home-intro, .services-header, .blog-header {
+        text-align: center;
+    }
 
+    .page-footer > .CEO-info {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: 1fr;
+        grid-auto-flow: column;
+    }
+        
+    .page-footer > img {
+        display: grid;
+        grid-column: 1;
+        grid-row: 1 / 2;
+    }
+    
+    .page-footer > .CEO-text {
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
 
+    .social-nav {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .tweets {
+        text-align: center;
+    }
 }
 
 
@@ -156,28 +213,7 @@ footer {
 
 @media screen and (max-width: 39.9375em) {
     /* styles for small and medium*/
-    .page {
-        min-width: 40rem;
-        max-width: 60rem;
-        margin: 0 auto;
-        display: grid;
-        grid-column-gap: 1.5rem;
-        grid-row-gap: 0;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: minmax(100px, auto);
-        grid-template-areas: 
-          "hd hd hd hd"
-          "hi hi hi hi" 
-          "sr sr sr sr"
-          "bl bl bl bl"
-          "pr pr pr pr"
-          "ft ft ft ft"
-    }
-    
-    .other-info, .hero-area, .clients {
-        display: none;
-    }
-}
+
 
 
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
@@ -240,10 +276,16 @@ footer {
     
     }
     
+    
     .info-tabs {
         display: grid;
         grid-column-start: 8;
         grid-column-end: 13;
         grid-template-columns: repeat(3, 1fr);
     }
+    
+    .page-footer > .social {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
 }
