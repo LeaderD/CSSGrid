@@ -12,6 +12,37 @@ footer {
     height: 40%;
 }
 
+.CEO-info > img {
+    border-radius: 50%;
+    height: 50%;
+    width: auto;
+}
+/*
+.project {
+    background-image: url(../img/theme/turntable.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 0.75fr;
+    justify-self: center;
+}
+
+.project > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-start: 4;
+}
+
+.project > div > img {
+    height: 50%;
+    grid-column-start: 4;
+    place-self: center;
+}
+
+.project > div > h3, h2 {
+    grid-template-rows: 0.5fr 0.5fr;
+}
+ */
 
 /* LAYOUT */
 
@@ -26,11 +57,19 @@ footer {
 
 .page-footer {
     grid-area: ft;
+    display: grid;
 }
 
 
 .hero-area {
     background-color: #ebebeb;
+    grid-area: hr;
+}
+
+.services {
+    grid-area: sr;
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
 }
 
 .page-footer {
@@ -155,10 +194,11 @@ footer {
     .service {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(, 0.5fr);
     }
     
     .service > img {
-        place-self: center;
+        align-self: center;
     }
     
     .service > .service-text {
@@ -181,12 +221,31 @@ footer {
     .home-intro, .services-header, .blog-header {
         text-align: center;
     }
+    
+    .page-footer {
+        display: grid;
+        grid-template-rows: 1fr 0.5fr 0.5fr;
+        justify-self: center;
+    }
 
     .page-footer > .CEO-info {
         display: grid;
         grid-template-columns: 2fr 2fr;
         grid-template-rows: 1fr;
         grid-auto-flow: column;
+        
+    }
+    
+    .twitter {
+        grid-row-start: 3;
+    }
+    
+    .about-us > p {
+        grid-row-start: 5;
+    }
+    
+    .CEO-info > img {
+        place-self: center;
     }
         
     .page-footer > img {
@@ -243,10 +302,128 @@ footer {
         justify-content: center;
 
     }
+     .page {
+        min-width: 40rem;
+        max-width: 50rem;
+        margin: 0 auto;
+        display: grid;
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 0;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-areas: 
+          "hd hd hd hd hd hd"
+          "hr hr hr hr hr hr"
+          "hi hi hi hi hi hi" 
+          "sr sr sr sr sr sr"
+          "bl bl bl bl bl bl"
+          "pr pr pr pr pr pr"
+          "in in in in in in"
+          "cl cl cl cl cl cl"
+          "ft ft ft ft ft ft"
+    }
+    
 
 }
 
 
 @media screen and (min-width: 64em) {
     /* styles for large and onward only */
+    .page {
+        min-width: 64rem;
+        max-width: 84rem;
+        margin: 0 auto;
+        display: grid;
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 0;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-template-areas: 
+          "hd hd hd hd hd hd hd hd hd hd hd hd"
+          "hr hr hr hr hr hr hr hr hr hr hr hr"
+          "hi hi hi hi hi hi hi hi hi hi hi hi" 
+          "sr sr sr sr sr sr sr sr sr sr sr sr"
+          "bl bl bl bl bl bl bl bl bl bl bl bl"
+          "pr pr pr pr pr pr pr pr pr pr pr pr"
+          "in in in in in in in in in in in in"
+          "cl cl cl cl cl cl cl cl cl cl cl cl"
+          "ft ft ft ft ft ft ft ft ft ft ft ft"
+    }
+    .home-intro {
+        text-align: center;
+    }
+
+    .services-header {
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    
+    .service {
+        display: grid;
+        grid-template-rows: 0.25fr 1fr;
+        text-align: center;
+    }
+    .service > img {
+        width: 5vw;
+        height: auto;
+        place-self: center;
+    }
+
+    .blog-header {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    }
+    
+    .project-header {
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .accordions {
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 7;
+    
+    }
+    
+    .info-tabs {
+        display: grid;
+        grid-column-start: 8;
+        grid-column-end: 13;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #tab2, #tab3 {
+        display: none;
+    }
+    
+    .page-footer > .social {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+    .page-footer {
+        display: grid;
+        grid-column-start: 3;
+        grid-column-end: 10;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr;
+        justify-self: center;
+    }
+
+    .page-footer > .CEO-info {
+        display: grid;
+        grid-template-columns: 0.25fr 1fr;        
+    }
+    
+    .CEO-info > img {
+        height: 10vh;
+        place-self: center;
+    }
+    
+    .social {
+        display: grid;
+        grid-template-columns: 4;
+    }
+    
+}
 }
